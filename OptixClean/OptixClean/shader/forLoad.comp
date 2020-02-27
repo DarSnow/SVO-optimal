@@ -1,0 +1,13 @@
+# version 430 core
+
+layout(local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
+uniform layout(binding = 0, r32ui) uimageBuffer u_octreeBuf;
+//atomic counter 
+layout(binding = 0, offset = 0) uniform atomic_uint u_allocCount;
+void main()
+{
+	int thxId = int(gl_GlobalInvocationID.x);
+	uint node = imageLoad(u_octreeBuf, thxId).r;
+	if(node == 5 )
+		atomicCounterIncrement(u_allocCount);
+}

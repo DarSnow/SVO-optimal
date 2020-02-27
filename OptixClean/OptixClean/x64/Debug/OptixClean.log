@@ -1,0 +1,366 @@
+﻿  Compiling CUDA source file optixPart\myconstantbg.cu...
+  Compiling CUDA source file optixPart\myphong.cu...
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\myconstantbg.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\myconstantbg.cu" 
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\myphong.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\myphong.cu" 
+  Compiling CUDA source file optixPart\mypinhole_camera.cu...
+  Compiling CUDA source file optixPart\pathtracecam.cu...
+  Compiling CUDA source file optixPart\pathtracing.cu...
+  Compiling CUDA source file optixPart\parallelogram.cu...
+  Compiling CUDA source file optixPart\pdfestimate.cu...
+  Compiling CUDA source file optixPart\sample.cu...
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\pathtracecam.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\pathtracecam.cu" 
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\mypinhole_camera.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\mypinhole_camera.cu" 
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\parallelogram.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\parallelogram.cu" 
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\pathtracing.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\pathtracing.cu" 
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\pdfestimate.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\pdfestimate.cu" 
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\sample.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\sample.cu" 
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  pathtracecam.cu
+  pdfestimate.cu
+  pathtracing.cu
+  myconstantbg.cu
+  Compiling CUDA source file optixPart\triangle_mesh.cu...
+  myphong.cu
+  
+  E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\bin\nvcc.exe" -gencode=arch=compute_30,code=\"sm_30,compute_30\" --use-local-env --cl-version 2015 -ccbin "D:\VS2015Community\VC\bin\x86_amd64" -x cu  -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda" -I"C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include"     --keep-dir x64\Debug -maxrregcount=0  --machine 64 -ptx -cudart static  -o x64\Debug\triangle_mesh.cu.ptx "E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\OptixClean\optixPart\triangle_mesh.cu" 
+  parallelogram.cu
+  mypinhole_camera.cu
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(838): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(1772): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(2628): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(3477): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(4417): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(5319): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(6229): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7104): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\math_functions.h(7914): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(776): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt/device_functions.h(1636): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\crt\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\program files\nvidia gpu computing toolkit\cuda\v9.1\include\sm_20_intrinsics.h(925): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  sample.cu
+  triangle_mesh.cu
+cl : 命令行 warning D9030: “/Gm”与多处理不兼容；忽略 /MP 开关
+  myWindow.cpp
+  VPLManager.cpp
+  SceneSupFunc.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenesupfunc.cpp(187): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenesupfunc.cpp(215): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  sceneCommon.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(45): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(46): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(47): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(48): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(49): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(50): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(51): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(52): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(54): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(55): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(56): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(57): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(58): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(59): warning C4305: “参数”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\glm\detail\type_vec4.inl(412): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(30): note: 参见对正在编译的函数 模板 实例化“glm::tvec4<float,0> &glm::tvec4<float,0>::operator *=<double>(U)”的引用
+          with
+          [
+              U=double
+          ]
+  e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scenecommon.cpp(30): note: 参见对正在编译的函数 模板 实例化“glm::tvec4<float,0> &glm::tvec4<float,0>::operator *=<double>(U)”的引用
+          with
+          [
+              U=double
+          ]
+  sceneold.cpp
+  scene.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\cuberender.h(26): warning C4244: “参数”: 从“float”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scene.cpp(136): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\twin.h(16): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\twin.h(15): note: 编译类 模板 成员函数“float Twin<float>::update(void)”时
+  e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scene.cpp(172): note: 参见对正在编译的函数 模板 实例化“float Twin<float>::update(void)”的引用
+  e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\scene.cpp(167): note: 参见对正在编译的类 模板 实例化“Twin<float>”的引用
+  2dScene.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\2dscene.cpp(75): warning C4305: “初始化”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\2dscene.cpp(75): warning C4305: “+=”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\2dscene.cpp(95): warning C4305: “初始化”: 从“double”到“float”截断
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\scene\2dscene.cpp(95): warning C4305: “+=”: 从“double”到“float”截断
+  VoxelRender.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\voxelrender.cpp(58): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\voxelrender.cpp(298): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\voxelrender.cpp(399): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\voxelrender.cpp(280): warning C4101: “err”: 未引用的局部变量
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\voxelrender.cpp(427): warning C4101: “err”: 未引用的局部变量
+  ShadowRender.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\shadowrender.cpp(185): warning C4244: “参数”: 从“const int”转换到“GLfloat”，可能丢失数据
+  optixSamplerBasic.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\optixpart\optixsamplerbasic.cpp(50): warning C4018: “<”: 有符号/无符号不匹配
+  optixSampler.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\optixpart\optixsampler.cpp(174): warning C4018: “<”: 有符号/无符号不匹配
+  AccelsLayout.cpp
+  Transform.cpp
+  Object.h
+  MeshObject.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+  light.cpp
+  Frustrum.cpp
+  camera.cpp
+  BoundingBox.cpp
+  main.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\includeandlib64\freeimage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(25): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(26): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(36): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(39): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(47): warning C4244: “=”: 从“double”转换到“BYTE”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(68): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(71): warning C4018: “<”: 有符号/无符号不匹配
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\common\imagetool.h(81): warning C4800: “BOOL”: 将值强制为布尔值“true”或“false”(性能警告)
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\renderer\textrender.h(95): warning C4838: 从“FT_Pos”转换到“GLuint”需要收缩转换
+  正在生成代码...
+  正在编译...
+  FullScreenQuad.cpp
+  const_def.cpp
+  Loader.cpp
+  AssetManager.cpp
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\modelclass\mesh.h(59): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\assetmanager\assetmanager.cpp(79): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\assetmanager\assetmanager.cpp(82): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+e:\project2\voxelizeneat(v1)\voxelizeneat - try to solve speed\optixclean\optixclean\assetmanager\assetmanager.cpp(205): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  正在生成代码...
+glfw3.lib(context.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(context.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(init.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(init.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(input.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(input.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(monitor.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(monitor.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(vulkan.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(vulkan.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(window.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(window.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(win32_init.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(win32_init.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(win32_joystick.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(win32_joystick.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(win32_monitor.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(win32_monitor.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(win32_time.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(win32_time.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(win32_tls.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(win32_tls.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(win32_window.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(win32_window.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(wgl_context.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(wgl_context.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+glfw3.lib(egl_context.obj) : warning LNK4099: 未找到 PDB“glfw.pdb”(使用“glfw3.lib(egl_context.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\glfw.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+SOIL.lib(image_DXT.obj) : warning LNK4099: 未找到 PDB“SOIL.pdb”(使用“SOIL.lib(image_DXT.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\SOIL.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+SOIL.lib(image_helper.obj) : warning LNK4099: 未找到 PDB“SOIL.pdb”(使用“SOIL.lib(image_helper.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\SOIL.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+SOIL.lib(SOIL.obj) : warning LNK4099: 未找到 PDB“SOIL.pdb”(使用“SOIL.lib(SOIL.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\SOIL.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: 未找到 PDB“SOIL.pdb”(使用“SOIL.lib(stb_image_aug.obj)”或在“E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\SOIL.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  OptixClean.vcxproj -> E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\OptixClean.exe
+  OptixClean.vcxproj -> E:\project2\VoxelizeNeat(V1)\VoxelizeNeat - try to solve speed\OptixClean\x64\Debug\OptixClean.pdb (Full PDB)

@@ -1,0 +1,62 @@
+# version 430 core
+
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
+
+//uniform int u_numVoxelFrag;
+uniform int u_level;
+uniform uint u_voxelDim;
+uniform int u_numVoxel;
+
+layout(binding = 0, rgb10_a2ui) uniform volatile coherent uimageBuffer u_voxelPos;
+layout(binding = 1, r32ui) uniform coherent uimageBuffer u_octreeBuf;
+
+//Atomic counter 
+//layout(binding = 0, offset = 0) uniform atomic_uint u_allocCount;
+
+void main()
+{
+	uint threadId = gl_GlobalInvocationID.y * 1024 + gl_GlobalInvocationID.x;
+	if (threadId >= u_numVoxel)
+		return;
+	//imageStore(u_voxelAlbedo, loc, uvec4(5, 0, 0, 0));
+
+	uvec4 loc = imageLoad(u_voxelPos, int(threadId));
+
+	//Decide max and min coord for the root node
+	uvec3 umin, umax;
+	uint node, subnode;
+	int childIdx = 0;
+	uint voxelDim = u_voxelDim;
+	bool bFlag = true;
+	umin = uvec3(0, 0, 0);
+	umax = uvec3(voxelDim, voxelDim, voxelDim);
+	// Get the root of octree
+	node = imageLoad(u_octreeBuf, childIdx).r;
+	for (int i = 0; i < u_level; i++)
+	{
+		voxelDim /= 2;	//next level number of voxels
+		if ((node & 0x80000000) == 0)	//is it empty
+		{
+			bFlag = false;
+			break;
+		}
+		childIdx = int(node & 0x7FFFFFFF);	//mask out flag bit to get the first child idx
+		// Find the subnode
+		subnode = clamp(int(1 + loc.x - umin.x - voxelDim), 0, 1);	
+		subnode += 4 * clamp(int(1 + loc.y - umin.y - voxelDim), 0, 1);
+		subnode += 2 * clamp(int(1 + loc.z - umin.z - voxelDim), 0, 1);
+		childIdx += int(subnode);
+		// Update the umin
+		umin.x += voxelDim * clamp(int(1 + loc.x - umin.x - voxelDim), 0, 1);
+		umin.y += voxelDim * clamp(int(1 + loc.y - umin.y - voxelDim), 0, 1);
+		umin.z += voxelDim * clamp(int(1 + loc.z - umin.z - voxelDim), 0, 1);
+		node = imageLoad(u_octreeBuf, childIdx).r;
+	}
+	if (bFlag)
+	{
+		node |= 0x80000000; //set the most significant bit.
+		imageStore(u_octreeBuf, childIdx, uvec4(node));
+		//atomicCounterIncrement(u_allocCount);
+		//memoryBarrier();
+	}
+}

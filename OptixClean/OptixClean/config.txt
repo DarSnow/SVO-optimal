@@ -1,0 +1,33 @@
+model box models/sky_sphere.obj 1
+model floor models/floor.obj 1
+model cornellbox models/cornellbox.obj 1
+model samplecornell models/cornellsample.obj 1
+model cube models/cube.obj 1
+//voxel shader
+shader voxelization 3 shader/voxelization.vs shader/voxelization.fs shader/voxelization.gs
+shader voxelDrawer 3 shader/draw_voxels.vs shader/draw_voxels.fs shader/draw_voxels.gs
+shader nodeFlag 1 shader/octreeNodeFlag.comp
+shader nodeAlloc 1 shader/octreeNodeAlloc.comp
+shader nodeInit 1 shader/octreeNodeInit.comp
+shader leafStore 1 shader/octreeLeafStore.comp
+shader octreeTo3Dtex 1 shader/octreeTo3Dtex.comp
+shader forTestStore 1 shader/forStore.comp
+shader forTestLoad 1 shader/forLoad.comp
+shader injectradiance 1 shader/inject_radiance.comp
+
+//shader depth 2 shader/depth.vs shader/depth.fs
+shader roll 2 shader/roll.vs shader/roll.fs 
+shader skybox 2 shader/box_shader.vs shader/box_shader.fs 
+shader screenshader 2 shader/screenshader.vs shader/screenshader.fs
+shader colorshader 2 shader/colorshader.vs shader/colorshader.fs
+shader gbuffer 2 shader/RenderIntoGbuffer.vs shader/RenderIntoGbuffer.fs 
+shader pMapCreationShader 2 shader/paraboloidMapCreation.vs shader/paraboloidMapCreation.fs 
+shader pMapUsageShader 2 shader/paraboloidMapUsage.vs shader/paraboloidMapUsage.fs 
+shader debugDepthQuad 2 shader/screenshader.vs shader/debugQuadDepth.fs
+shader vplPSMCreationShader 2 shader/vplParaboloidMapCreation.vs shader/vplParaboloidMapCreation.fs
+shader vplPSMUsageShader 2 shader/vplParaboloidMapUsage.vs shader/vplParaboloidMapUsage.fs
+shader globalPSMUsageShader 2 shader/globalMapUsage.vs shader/globalMapUsage.fs
+shader deferredGlobalPSMUsageShader 2 shader/deferredGlobalMapUsage.vs shader/deferredGlobalMapUsage.fs
+shader cMapCreationShader 3 shader/3.2.1.point_shadows_depth.vs shader/3.2.1.point_shadows_depth.fs shader/3.2.1.point_shadows_depth.gs
+shader pointshader 3 shader/pointshader.vs shader/pointshader.fs shader/normaldraw.gs
+end

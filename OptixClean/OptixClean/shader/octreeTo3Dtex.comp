@@ -1,0 +1,68 @@
+# version 430
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 8) in;
+uniform int u_level;
+uniform uint u_voxelDim;
+layout(binding = 0, r32ui) uniform volatile coherent uimage3D u_octree3D;
+layout(binding = 1, r32ui) uniform uimageBuffer u_octreeBuf;
+layout(binding = 2, r32ui) uniform uimageBuffer u_octreeAlbedo;
+//Atomic counter 
+layout(binding = 0, offset = 0) uniform atomic_uint u_allocCount;
+
+void main()
+{
+	uvec3 loc = gl_GlobalInvocationID;
+	
+	uvec3 umin, umax;
+	uint idx = 0;
+	int depth;
+	uint voxelDim = u_voxelDim;
+	uint subnode;
+	bool bOccupied = true;
+	//Decide max and min coord for the root node
+	umin = uvec3(0, 0, 0);
+	uint last_idx = 0;
+	for (depth = 0; depth <= u_level; depth++)
+	{
+		idx = imageLoad(u_octreeBuf, int(idx)).r;
+		if ((idx & 0x80000000) == 0)
+		{
+			bOccupied = false;
+			break;
+		}
+		else if (depth == u_level)
+		{
+			if ((idx & 0x7FFFFFFF) == 0)
+				atomicCounterIncrement(u_allocCount);
+			break;
+		}
+
+		idx &= 0x7FFFFFFF;  //mask out flag bit to get child pointer
+		if (idx == 0)
+		{
+			bOccupied = false;
+			break;
+		}
+		voxelDim /= 2;
+		// Find the subnode
+		subnode = clamp(int(1 + loc.x - umin.x - voxelDim), 0, 1);
+		subnode += 4 * clamp(int(1 + loc.y - umin.y - voxelDim), 0, 1);
+		subnode += 2 * clamp(int(1 + loc.z - umin.z - voxelDim), 0, 1);
+		idx += int(subnode);
+		last_idx = idx;
+		// Update the umin
+		umin.x += voxelDim * clamp(int(1 + loc.x - umin.x - voxelDim), 0, 1);
+		umin.y += voxelDim * clamp(int(1 + loc.y - umin.y - voxelDim), 0, 1);
+		umin.z += voxelDim * clamp(int(1 + loc.z - umin.z - voxelDim), 0, 1);
+	}
+	if (bOccupied)
+	{
+		last_idx &= 0x7FFFFFFF;  //mask out flag bit to get child pointer
+		uint color = imageLoad(u_octreeAlbedo, int(last_idx)).r;
+		imageStore(u_octree3D, ivec3(loc.xyz), uvec4(color));
+	}
+	else
+	{
+		imageStore(u_octree3D, ivec3(loc.xyz), uvec4(0, 0, 0, 0));
+		/*atomicCounterIncrement(u_allocCount)*/;
+	}
+}

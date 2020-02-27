@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{43b7fbd8-7522-4ee4-b634-e6d1da989e82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code">
+      <UniqueIdentifier>{0ce7a442-2f87-4ca1-8172-f244a0788247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\AssetManager">
+      <UniqueIdentifier>{adb96948-ff3e-4ba5-a7e4-a45fc306208c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Common">
+      <UniqueIdentifier>{9a133c62-8f11-44fa-beb9-6cfc837f9ebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\ModelClass">
+      <UniqueIdentifier>{a9cb513e-7910-4e1a-93cb-56d84735ac3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Scene">
+      <UniqueIdentifier>{2a375b94-beff-4869-a4bd-c80cf62ded08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Renderer">
+      <UniqueIdentifier>{ee54fc40-2269-4851-a3dd-0e7dd04626a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Window">
+      <UniqueIdentifier>{3ba76068-1c9b-4d13-8a5e-1c9aa6137aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\OptixPartHeader">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Code\Object">
+      <UniqueIdentifier>{af1bc35c-fcd9-4ed5-8cd9-550860ac0a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\OptixPartSource">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Code\VPLManager">
+      <UniqueIdentifier>{19ab86cf-c46e-4fae-94d1-03bb88e2cdb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader\voxel">
+      <UniqueIdentifier>{3fd9ef60-8291-4524-9d06-03f0f1a8b146}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="optixPart\PointDraw.vs">
+      <Filter>Code\OptixPartSource</Filter>
+    </None>
+    <None Include="optixPart\Tex2Scr.fs">
+      <Filter>Code\OptixPartSource</Filter>
+    </None>
+    <None Include="optixPart\Tex2Scr.vs">
+      <Filter>Code\OptixPartSource</Filter>
+    </None>
+    <None Include="optixPart\PointDraw.fs">
+      <Filter>Code\OptixPartSource</Filter>
+    </None>
+    <None Include="shader\3.2.1.point_shadows_depth.gs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\3.2.1.point_shadows_depth.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\8.1.fbo_debug.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\8.1.fbo_debug.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\8.2.g_buffer.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\8.2.g_buffer.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\box_shader.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\box_shader.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\colorshader.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\colorshader.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\cubeDepth.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\cubeDepth.gs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\cubeDepth.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\curve.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\curve.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\debugQuadDepth.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\deferredGlobalMapUsage.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\deferredGlobalMapUsage.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\globalMapUsage.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\globalMapUsage.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\paraboloidMapCreation.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\paraboloidMapCreation.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\paraboloidMapUsage.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\paraboloidMapUsage.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\pointshader.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\pointshader.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\RenderIntoGbuffer.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\RenderIntoGbuffer.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\roll.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\roll.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\screenshader.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\screenshader.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\shader1.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\shader1.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\text.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\text.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\vplParaboloidMapCreation.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\vplParaboloidMapCreation.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\vplParaboloidMapUsage.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\vplParaboloidMapUsage.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\3.2.1.point_shadows_depth.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="shader\draw_voxels.vs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\draw_voxels.fs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\draw_voxels.gs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\voxelization.vs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\voxelization.fs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\voxelization.gs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\testVoxelBuild.vs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\testVoxelBuild.fs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\inject_radiance.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\depth.vs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\depth.fs">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\octreeLeafStore.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\octreeNodeAlloc.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\octreeNodeFlag.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\octreeNodeInit.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\octreeTo3Dtex.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\forLoad.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+    <None Include="shader\forStore.comp">
+      <Filter>Shader\voxel</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="optixPart\AccelsLayout.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\helpers.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\random.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\phong.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\optixSampler.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\MeshBuilder.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\intersection_refinement.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\commonStructs.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\ComConfig.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="c:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil\HDRLoader.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\AssetManager.h">
+      <Filter>Code\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\Loader.h">
+      <Filter>Code\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager\Singleton.h">
+      <Filter>Code\AssetManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\ArrayManager.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\ImageTool.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Singleton.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\myWindow.h">
+      <Filter>Code\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\CubeRender.h">
+      <Filter>Code\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\TextRender.h">
+      <Filter>Code\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\2dScene.h">
+      <Filter>Code\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\sampleAssistance.h">
+      <Filter>Code\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\scene.h">
+      <Filter>Code\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelClass\mesh.h">
+      <Filter>Code\ModelClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelClass\meterial.h">
+      <Filter>Code\ModelClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelClass\Shader.h">
+      <Filter>Code\ModelClass</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelClass\Texture.h">
+      <Filter>Code\ModelClass</Filter>
+    </ClInclude>
+    <ClInclude Include="object\camera.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\light.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\Transform.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\GLheader.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\StringTool.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\define.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="optixPart\ParallelogramLight.h">
+      <Filter>Code\OptixPartHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="VPLManage\VPL.h">
+      <Filter>Code\VPLManager</Filter>
+    </ClInclude>
+    <ClInclude Include="VPLManage\VPLManager.h">
+      <Filter>Code\VPLManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Twin.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\const_def.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="object\Frustrum.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="object\BoundingBox.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\FullScreenQuad.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\VoxelRender.h">
+      <Filter>Code\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\InstancePool.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="object\FreeMove.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\FrameBuffer.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="object\MeshObject.h">
+      <Filter>Code\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\ShadowRender.h">
+      <Filter>Code\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer\GBufferRender.h">
+      <Filter>Code\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Atomic.h">
+      <Filter>Code\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="optixPart\sample.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\triangle_mesh.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\myconstantbg.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\myphong.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\mypinhole_camera.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\pathtracing.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\parallelogram.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\pathtracecam.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+    <CudaCompile Include="optixPart\pdfestimate.cu">
+      <Filter>Code\OptixPartSource</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="optixPart\AccelsLayout.cpp">
+      <Filter>Code\OptixPartSource</Filter>
+    </ClCompile>
+    <ClCompile Include="optixPart\optixSampler.cpp">
+      <Filter>Code\OptixPartSource</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\AssetManager.cpp">
+      <Filter>Code\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager\Loader.cpp">
+      <Filter>Code\AssetManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\myWindow.cpp">
+      <Filter>Code\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\2dScene.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\scene.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scene\SceneSupFunc.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\sceneCommon.cpp">
+      <Filter>Code\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="VPLManage\VPLManager.cpp">
+      <Filter>Code\VPLManager</Filter>
+    </ClCompile>
+    <ClCompile Include="optixPart\optixSamplerBasic.cpp">
+      <Filter>Code\OptixPartSource</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\sceneold.cpp">
+      <Filter>Code\OptixPartSource</Filter>
+    </ClCompile>
+    <ClCompile Include="object\Transform.cpp">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\BoundingBox.cpp">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\Frustrum.cpp">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\camera.cpp">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\FullScreenQuad.cpp">
+      <Filter>Code\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\VoxelRender.cpp">
+      <Filter>Code\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\const_def.cpp">
+      <Filter>Code\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="object\MeshObject.cpp">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\Object.h">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="object\light.cpp">
+      <Filter>Code\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer\ShadowRender.cpp">
+      <Filter>Code\Renderer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config.txt" />
+  </ItemGroup>
+</Project>

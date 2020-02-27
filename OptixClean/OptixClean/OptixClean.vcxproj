@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="optixPart\PointDraw.fs" />
+    <None Include="optixPart\PointDraw.vs" />
+    <None Include="optixPart\Tex2Scr.fs" />
+    <None Include="optixPart\Tex2Scr.vs" />
+    <None Include="shader\3.2.1.point_shadows_depth.fs" />
+    <None Include="shader\3.2.1.point_shadows_depth.gs" />
+    <None Include="shader\3.2.1.point_shadows_depth.vs" />
+    <None Include="shader\8.1.fbo_debug.fs" />
+    <None Include="shader\8.1.fbo_debug.vs" />
+    <None Include="shader\8.2.g_buffer.fs" />
+    <None Include="shader\8.2.g_buffer.vs" />
+    <None Include="shader\box_shader.fs" />
+    <None Include="shader\box_shader.vs" />
+    <None Include="shader\colorshader.fs" />
+    <None Include="shader\colorshader.vs" />
+    <None Include="shader\cubeDepth.fs" />
+    <None Include="shader\cubeDepth.gs" />
+    <None Include="shader\cubeDepth.vs" />
+    <None Include="shader\curve.fs" />
+    <None Include="shader\curve.vs" />
+    <None Include="shader\debugQuadDepth.fs" />
+    <None Include="shader\deferredGlobalMapUsage.fs" />
+    <None Include="shader\deferredGlobalMapUsage.vs" />
+    <None Include="shader\depth.fs" />
+    <None Include="shader\depth.vs" />
+    <None Include="shader\draw_voxels.fs" />
+    <None Include="shader\draw_voxels.gs" />
+    <None Include="shader\draw_voxels.vs" />
+    <None Include="shader\forLoad.comp" />
+    <None Include="shader\forStore.comp" />
+    <None Include="shader\globalMapUsage.fs" />
+    <None Include="shader\globalMapUsage.vs" />
+    <None Include="shader\inject_radiance.comp" />
+    <None Include="shader\octreeLeafStore.comp" />
+    <None Include="shader\octreeNodeAlloc.comp" />
+    <None Include="shader\octreeNodeFlag.comp" />
+    <None Include="shader\octreeNodeInit.comp" />
+    <None Include="shader\octreeTo3Dtex.comp" />
+    <None Include="shader\paraboloidMapCreation.fs" />
+    <None Include="shader\paraboloidMapCreation.vs" />
+    <None Include="shader\paraboloidMapUsage.fs" />
+    <None Include="shader\paraboloidMapUsage.vs" />
+    <None Include="shader\pointshader.fs" />
+    <None Include="shader\pointshader.vs" />
+    <None Include="shader\RenderIntoGbuffer.fs" />
+    <None Include="shader\RenderIntoGbuffer.vs" />
+    <None Include="shader\roll.fs" />
+    <None Include="shader\roll.vs" />
+    <None Include="shader\screenshader.fs" />
+    <None Include="shader\screenshader.vs" />
+    <None Include="shader\shader1.fs" />
+    <None Include="shader\shader1.vs" />
+    <None Include="shader\testVoxelBuild.fs" />
+    <None Include="shader\testVoxelBuild.vs" />
+    <None Include="shader\text.fs" />
+    <None Include="shader\text.vs" />
+    <None Include="shader\voxelization.fs" />
+    <None Include="shader\voxelization.gs" />
+    <None Include="shader\voxelization.vs" />
+    <None Include="shader\vplParaboloidMapCreation.fs" />
+    <None Include="shader\vplParaboloidMapCreation.vs" />
+    <None Include="shader\vplParaboloidMapUsage.fs" />
+    <None Include="shader\vplParaboloidMapUsage.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AssetManager\AssetManager.h" />
+    <ClInclude Include="AssetManager\Loader.h" />
+    <ClInclude Include="AssetManager\Singleton.h" />
+    <ClInclude Include="Atomic.h" />
+    <ClInclude Include="c:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil\HDRLoader.h" />
+    <ClInclude Include="Common\const_def.h" />
+    <ClInclude Include="Common\FrameBuffer.h" />
+    <ClInclude Include="Common\FullScreenQuad.h" />
+    <ClInclude Include="Common\InstancePool.h" />
+    <ClInclude Include="Common\Twin.h" />
+    <ClInclude Include="Common\ArrayManager.h" />
+    <ClInclude Include="Common\GLheader.h" />
+    <ClInclude Include="Common\ImageTool.h" />
+    <ClInclude Include="Common\Singleton.h" />
+    <ClInclude Include="Common\StringTool.h" />
+    <ClInclude Include="ModelClass\mesh.h" />
+    <ClInclude Include="ModelClass\meterial.h" />
+    <ClInclude Include="ModelClass\Shader.h" />
+    <ClInclude Include="ModelClass\Texture.h" />
+    <ClInclude Include="object\BoundingBox.h" />
+    <ClInclude Include="object\camera.h" />
+    <ClInclude Include="object\FreeMove.h" />
+    <ClInclude Include="object\Frustrum.h" />
+    <ClInclude Include="object\light.h" />
+    <ClInclude Include="object\MeshObject.h" />
+    <ClInclude Include="object\Transform.h" />
+    <ClInclude Include="optixPart\AccelsLayout.h" />
+    <ClInclude Include="optixPart\ComConfig.h" />
+    <ClInclude Include="optixPart\commonStructs.h" />
+    <ClInclude Include="optixPart\define.h" />
+    <ClInclude Include="optixPart\helpers.h" />
+    <ClInclude Include="optixPart\intersection_refinement.h" />
+    <ClInclude Include="optixPart\MeshBuilder.h" />
+    <ClInclude Include="optixPart\optixSampler.h" />
+    <ClInclude Include="optixPart\ParallelogramLight.h" />
+    <ClInclude Include="optixPart\phong.h" />
+    <ClInclude Include="optixPart\random.h" />
+    <ClInclude Include="Renderer\CubeRender.h" />
+    <ClInclude Include="Renderer\GBufferRender.h" />
+    <ClInclude Include="Renderer\ShadowRender.h" />
+    <ClInclude Include="Renderer\TextRender.h" />
+    <ClInclude Include="Renderer\VoxelRender.h" />
+    <ClInclude Include="Scene\2dScene.h" />
+    <ClInclude Include="Scene\sampleAssistance.h" />
+    <ClInclude Include="Scene\scene.h" />
+    <ClInclude Include="VPLManage\VPL.h" />
+    <ClInclude Include="VPLManage\VPLManager.h" />
+    <ClInclude Include="Window\myWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="optixPart\myconstantbg.cu" />
+    <CudaCompile Include="optixPart\myphong.cu" />
+    <CudaCompile Include="optixPart\mypinhole_camera.cu" />
+    <CudaCompile Include="optixPart\parallelogram.cu" />
+    <CudaCompile Include="optixPart\pathtracecam.cu" />
+    <CudaCompile Include="optixPart\pathtracing.cu" />
+    <CudaCompile Include="optixPart\pdfestimate.cu" />
+    <CudaCompile Include="optixPart\sample.cu" />
+    <CudaCompile Include="optixPart\triangle_mesh.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssetManager\AssetManager.cpp" />
+    <ClCompile Include="AssetManager\Loader.cpp" />
+    <ClCompile Include="Common\const_def.cpp" />
+    <ClCompile Include="Common\FullScreenQuad.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="object\BoundingBox.cpp" />
+    <ClCompile Include="object\camera.cpp" />
+    <ClCompile Include="object\Frustrum.cpp" />
+    <ClCompile Include="object\light.cpp" />
+    <ClCompile Include="object\MeshObject.cpp" />
+    <ClCompile Include="object\Object.h" />
+    <ClCompile Include="object\Transform.cpp" />
+    <ClCompile Include="optixPart\AccelsLayout.cpp" />
+    <ClCompile Include="optixPart\optixSampler.cpp" />
+    <ClCompile Include="optixPart\optixSamplerBasic.cpp" />
+    <ClCompile Include="Renderer\ShadowRender.cpp" />
+    <ClCompile Include="Renderer\VoxelRender.cpp" />
+    <ClCompile Include="Scene\2dScene.cpp" />
+    <ClCompile Include="Scene\scene.cpp" />
+    <ClCompile Include="Scene\sceneold.cpp" />
+    <ClCompile Include="Scene\sceneCommon.cpp" />
+    <ClCompile Include="Scene\SceneSupFunc.cpp" />
+    <ClCompile Include="VPLManage\VPLManager.cpp" />
+    <ClCompile Include="Window\myWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="config.txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6A987A60-EC0A-4D22-B1F3-2E836E2841EE}</ProjectGuid>
+    <RootNamespace>OptixClean</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 9.1.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)\includeAndLib64;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\includeAndLib64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include;D:\OpenglProject\OptixBuild;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USE_MATH_DEFINES;NOMINMAX;GLUT_FOUND;GLUT_NO_LIB_PRAGMA;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4355;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>D:\OpenglProject\OptixBuild\lib\Debug\sutil_sdk.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\lib64\optix.51.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\lib64\optixu.1.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\win64\Release\freeglut.lib;opengl32.lib;glu32.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvrtc.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USE_MATH_DEFINES;NOMINMAX;GLUT_FOUND;GLUT_NO_LIB_PRAGMA;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DisableSpecificWarnings>4355;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>sutil_sdk.lib;glfw3.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\freeglut\win64\Release\freeglut.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\lib64\optix.51.lib;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\lib64\optixu.1.lib;glu32.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\lib\x64\nvrtc.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;openvr_api.lib;assimp-vc140-mt.lib;SOIL.lib;freeImage.lib;cublas.lib;cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;nvcuvid.lib;cufft.lib;openCL.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:\OpenglProject\OptixClean\x64\Debug\OptixClean.lib</ImportLibrary>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Link>
+    <CudaCompile>
+      <CompileOut>$(IntDir)%(Filename)%(Extension).ptx</CompileOut>
+    </CudaCompile>
+    <CudaCompile>
+      <NvccCompilation>ptx</NvccCompilation>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <Include>C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\sutil;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\include\optixu;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\support\mdl-sdk\include;C:\ProgramData\NVIDIA Corporation\OptiX SDK 5.1.0\SDK\cuda;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.1\include;%(AdditionalIncludeDirectories)</Include>
+      <GenerateRelocatableDeviceCode>false</GenerateRelocatableDeviceCode>
+      <GPUDebugInfo>false</GPUDebugInfo>
+      <HostDebugInfo>false</HostDebugInfo>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 9.1.targets" />
+  </ImportGroup>
+</Project>

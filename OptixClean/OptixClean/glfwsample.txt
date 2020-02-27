@@ -1,0 +1,753 @@
+/* 
+ * Copyright (c) 2018 NVIDIA CORPORATION. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *  * Neither the name of NVIDIA CORPORATION nor the names of its
+ *    contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+ * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include "optixSampler.h"
+
+OptixSampler optixSamplr;
+
+//------------------------------------------------------------------------------
+//
+//  Middle Helper functions
+//
+//------------------------------------------------------------------------------
+void glutDisplay() {
+	optixSamplr.glutDisplay();
+}
+void glutKeyboardPress(unsigned char k, int x, int y) {
+	optixSamplr.glutKeyboardPress(k, x, y);
+}
+void glutMousePress(int button, int state, int x, int y) {
+	optixSamplr.glutMousePress(button, state, x, y);
+}
+void glutMouseMotion(int x, int y) {
+	optixSamplr.glutMouseMotion(x, y);
+}
+void glutResize(int w, int h) {
+	optixSamplr.glutResize(w, h);
+}
+
+
+
+Buffer OptixSampler::getOutputBuffer()
+{
+    return context[ "output_buffer" ]->getBuffer();
+}
+
+#pragma region CallbackSetup
+
+void destroyContext()
+{
+
+}
+// Static callback
+void usageReportCallback( int lvl, const char* tag, const char* msg, void* cbdata )
+{
+    // Route messages to a C++ object (the "logger"), as a real app might do.
+    // We could have printed them directly in this simple case.
+
+    UsageReportLogger* logger = reinterpret_cast<UsageReportLogger*>( cbdata );
+    logger->log( lvl, tag, msg ); 
+}
+
+void OptixSampler::registerExitHandler()
+{
+    // register shutdown handler
+#ifdef _WIN32
+
+#else
+    atexit( destroyContext );
+#endif
+}
+#pragma endregion
+
+void OptixSampler::setupShader() {
+	pointShader = new Shader("optixPart/PointDraw.vs", "optixPart/PointDraw.fs");
+	tex2ScrShader = new Shader("optixPart/Tex2Scr.vs", "optixPart/Tex2Scr.fs");
+	tex2ScrShader->use();
+	tex2ScrShader->setInt("scrTexture", 0);
+	glUseProgram(0);
+	pointShader->GetProgram();
+}
+
+void OptixSampler::createContext( int usage_report_level, UsageReportLogger* logger )
+{
+    // Set up context
+    context = Context::create();
+    context->setRayTypeCount( 4 );
+    context->setEntryPointCount( 1 );
+    if( usage_report_level > 0 )
+    {
+        context->setUsageReportCallback( usageReportCallback, usage_report_level, logger );
+    }
+
+    context["radiance_ray_type"]->setUint( 0u );
+    context["shadow_ray_type"  ]->setUint( 1u );
+	context["sample_ray_type"]->setUint(2u);
+	context["sampleDlight_ray_type"]->setUint(3u);
+    context["scene_epsilon"    ]->setFloat( 1.e-4f );
+
+    Buffer buffer = sutil::createOutputBuffer( context, RT_FORMAT_UNSIGNED_BYTE4, width, height, use_pbo );
+    context["output_buffer"]->set( buffer );
+		
+	Buffer posbuffer = OptixMeshSpace::createArrBuffer(context, RT_FORMAT_FLOAT4, samplenum, use_pbo);
+	context["sample_pos_buffer"]->set(posbuffer);
+
+	Buffer norbuffer = OptixMeshSpace::createArrBuffer(context, RT_FORMAT_FLOAT4, samplenum, use_pbo);
+	context["sample_nor_buffer"]->set(norbuffer);
+
+	Buffer clrbuffer = OptixMeshSpace::createArrBuffer(context, RT_FORMAT_FLOAT4, samplenum, use_pbo);
+	context["sample_clr_buffer"]->set(clrbuffer);
+
+    // Ray generation program
+    ray_gen_program = context->createProgramFromPTXFile( "x64/Debug/mypinhole_camera.cu.ptx", "pinhole_camera" );
+    
+    // Exception program
+    exception_program = context->createProgramFromPTXFile( "x64/Debug/mypinhole_camera.cu.ptx", "exception" );
+    context["bad_color"]->setFloat( 1.0f, 0.0f, 1.0f );
+
+    // Miss program
+	miss_program = context->createProgramFromPTXFile("x64/Debug/myconstantbg.cu.ptx", "miss");
+	context->setMissProgram(0, miss_program);
+    context["bg_color"]->setFloat( 0.0f, 0.0f, 0.0f);
+
+	// Sample camera ray gen program
+	const char *sampleptx = sutil::getPtxString(NULL, samplecu_file.c_str());
+	sample_gen_program = context->createProgramFromPTXString(sampleptx, "pinhole_camera");
+	sample_exception_program = context->createProgramFromPTXString(sampleptx, "exception");
+	sample_miss_program = context->createProgramFromPTXString(sampleptx, "miss");
+	samplelight_gen_program = context->createProgramFromPTXString(sampleptx, "pinhole_camera_samlight");
+	// setup miss program for lightsample ray
+	context->setMissProgram(2, sample_miss_program);
+	context->setMissProgram(3, sample_miss_program);
+
+	setupAllVAO();
+	setupShader();
+	
+}
+
+void OptixSampler::setupNormalContext() {
+	context->setRayGenerationProgram(0, ray_gen_program);
+	context->setExceptionProgram(0, exception_program);
+}
+
+void OptixSampler::setupCamSampleContext() {
+	context->setRayGenerationProgram(0, sample_gen_program);
+	context->setExceptionProgram(0, sample_exception_program);
+}
+
+void OptixSampler::setuplightSampleContext() {
+	context["raytype"]->setUint(2);
+	context->setRayGenerationProgram(0, samplelight_gen_program);
+	context->setExceptionProgram(0, sample_exception_program);
+}
+
+void OptixSampler::setupDirlightSampleContext() {
+	context["raytype"]->setUint(3);
+	context->setRayGenerationProgram(0, samplelight_gen_program);
+	context->setExceptionProgram(0, sample_exception_program);
+}
+
+void OptixSampler::createScene(Context ctx, DynamicLayout *layout) {
+	//std::string mesh_file = std::string(sutil::samplesDir()) + "/data/cow.obj";
+	layout->createGeometry(ctx);
+	layout->addGeometry(ctx, cube_mesh_file, 3);
+	layout->addGeometry(ctx, mesh_file, 1);
+	layout->endGeometry(ctx);
+}
+
+void OptixSampler::loadMesh( const std::string& filename )
+{
+    OptiXMesh mesh;
+    mesh.context = context;
+	OptixMeshSpace::loadMesh( filename, mesh );
+
+    GeometryGroup geometry_group = context->createGeometryGroup();
+    geometry_group->addChild( mesh.geom_instance );
+    geometry_group->setAcceleration( context->createAcceleration( "Trbvh" ) );
+    context[ "top_object"   ]->set( geometry_group ); 
+    context[ "top_shadower" ]->set( geometry_group ); 
+}
+
+void OptixSampler::getBufferToArr() {
+	optix::Buffer posbuffer = Buffer::take(context["sample_pos_buffer"]->getBuffer()->get());
+	optix::Buffer norbuffer = Buffer::take(context["sample_nor_buffer"]->getBuffer()->get());
+	optix::Buffer clrbuffer = Buffer::take(context["sample_clr_buffer"]->getBuffer()->get());
+
+	// Query buffer information
+	RTsize buffer_width_rts;
+	posbuffer->getSize(buffer_width_rts);
+	uint32_t width = static_cast<int>(buffer_width_rts);
+	RTformat buffer_format = posbuffer->getFormat();
+
+	GLfloat* posdata = reinterpret_cast<float*>(posbuffer->map());
+	GLfloat* nordata = reinterpret_cast<float*>(norbuffer->map());
+	GLfloat* clrdata = reinterpret_cast<float*>(clrbuffer->map());
+	//for (uint32_t i = 0; i < 10; ++i) {
+	//	std::cout << data[4*i] <<" "<< data[4 * i+1] << " "
+	//		<< data[4 * i + 2] << " " << data[4 * i + 3] << std::endl;
+	//}
+
+	memcpy(samplePosArr + sampleIdx * 4, posdata, width * 4 * 4);
+	memcpy(sampleNorArr + sampleIdx * 4, nordata, width * 4 * 4);
+	memcpy(sampleClrArr + sampleIdx * 4, clrdata, width * 4 * 4);
+	sampleIdx += width;
+
+	posbuffer->unmap();
+	norbuffer->unmap();
+	clrbuffer->unmap();
+}
+
+void OptixSampler::setupAllVAO() {
+	// setup quad AVO
+	static float quadVertices[] = {
+		// positions   // texCoords
+		-1.0f,  1.0f,  0.0f, 1.0f,
+		-1.0f, -1.0f,  0.0f, 0.0f,
+		1.0f, -1.0f,  1.0f, 0.0f,
+
+		-1.0f,  1.0f,  0.0f, 1.0f,
+		1.0f, -1.0f,  1.0f, 0.0f,
+		1.0f,  1.0f,  1.0f, 1.0f
+	};
+	unsigned int quadVBO;
+	glGenVertexArrays(1, &quadVAO);
+	glGenBuffers(1, &quadVBO);
+	glBindVertexArray(quadVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), quadVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+	// setup sample VAO
+	glGenVertexArrays(1, &sampleVAO);
+	glGenBuffers(1, &sampleVBO);
+	glBindVertexArray(sampleVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, sampleVBO);
+	glBufferData(GL_ARRAY_BUFFER, 0, NULL, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void OptixSampler::drawPoints() {
+	glDisable(GL_DEPTH_TEST);
+	pointShader->use();
+
+	glBindVertexArray(sampleVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, sampleVBO);
+	glBufferData(GL_ARRAY_BUFFER, sampleIdx * 4 * sizeof(float), samplePosArr, GL_STATIC_DRAW);
+
+	glm::mat4 view = glm::lookAt(glm::vec3(camera_eye.x, camera_eye.y, camera_eye.z),
+		glm::vec3(camera_lookat.x, camera_lookat.y, camera_lookat.z),
+		glm::vec3(camera_up.x, camera_up.y, camera_up.z));
+	glm::mat4 proj = glm::perspective(glm::radians(vfov), static_cast<float>(width) / static_cast<float>(height),
+		1.0f, 200.0f);
+	pointShader->setMat4("transform", (proj*view));
+	glPointSize(2.5f);
+	glDrawArrays(GL_POINTS, 0, sampleIdx);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void OptixSampler::displayBufferToScr(RTbuffer m_buffer, bufferPixelFormat g_image_buffer_format)
+{
+	optix::Buffer buffer = Buffer::take(m_buffer);
+
+	// Query buffer information
+	RTsize buffer_width_rts, buffer_height_rts;
+	buffer->getSize(buffer_width_rts, buffer_height_rts);
+	uint32_t width = static_cast<int>(buffer_width_rts);
+	uint32_t height = static_cast<int>(buffer_height_rts);
+	RTformat buffer_format = buffer->getFormat();
+
+	GLboolean use_SRGB = GL_FALSE;
+	if (!g_disable_srgb_conversion && (buffer_format == RT_FORMAT_FLOAT4 || buffer_format == RT_FORMAT_FLOAT3))
+	{
+		glGetBooleanv(GL_FRAMEBUFFER_SRGB_CAPABLE_EXT, &use_SRGB);
+		if (use_SRGB)
+			glEnable(GL_FRAMEBUFFER_SRGB_EXT);
+	}
+
+	static unsigned int gl_tex_id = 0;
+	if (!gl_tex_id)
+	{
+		glGenTextures(1, &gl_tex_id);
+		glBindTexture(GL_TEXTURE_2D, gl_tex_id);
+
+		// Change these to GL_LINEAR for super- or sub-sampling
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+		// GL_CLAMP_TO_EDGE for linear filtering, not relevant for nearest.
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	}
+
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, gl_tex_id);
+
+	// send PBO or host-mapped image data to texture
+	const unsigned pboId = buffer->getGLBOId();
+	GLvoid* imageData = 0;
+	if (pboId)
+		glBindBuffer(GL_PIXEL_UNPACK_BUFFER, pboId);
+	else
+		imageData = buffer->map(0, RT_BUFFER_MAP_READ);
+
+	RTsize elmt_size = buffer->getElementSize();
+	if (elmt_size % 8 == 0) glPixelStorei(GL_UNPACK_ALIGNMENT, 8);
+	else if (elmt_size % 4 == 0) glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+	else if (elmt_size % 2 == 0) glPixelStorei(GL_UNPACK_ALIGNMENT, 2);
+	else                          glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	GLenum pixel_format = glFormatFromBufferFormat(g_image_buffer_format, buffer_format);
+
+	if (buffer_format == RT_FORMAT_UNSIGNED_BYTE4)
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, pixel_format, GL_UNSIGNED_BYTE, imageData);
+	else if (buffer_format == RT_FORMAT_FLOAT4)
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA32F_ARB, width, height, 0, pixel_format, GL_FLOAT, imageData);
+	else if (buffer_format == RT_FORMAT_FLOAT3)
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F_ARB, width, height, 0, pixel_format, GL_FLOAT, imageData);
+	else if (buffer_format == RT_FORMAT_FLOAT)
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE32F_ARB, width, height, 0, pixel_format, GL_FLOAT, imageData);
+	else
+		throw Exception("Unknown buffer format");
+
+	if (pboId)
+		glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
+	else
+		buffer->unmap();
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glViewport(0, 0, width, height);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBindVertexArray(quadVAO);
+	tex2ScrShader->use();
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, gl_tex_id);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+
+	drawPoints();
+	
+	glDisable(GL_TEXTURE_2D);
+
+	if (use_SRGB)
+		glDisable(GL_FRAMEBUFFER_SRGB_EXT);
+}
+
+
+void OptixSampler::getBufferContent(optix::Buffer buffer, bool isSample, bufferPixelFormat format) {
+	g_disable_srgb_conversion = false;
+	if (isSample) {
+		getBufferToArr();
+	}
+	else {
+		displayBufferToScr( buffer->get(), format );
+	}
+}
+
+  
+void OptixSampler::setupCamera(Aabb aabb)
+{
+    const float max_dim = fmaxf(aabb.extent(0), aabb.extent(1)); // max of x, y components
+
+    camera_eye    = aabb.center() + make_float3(max_dim*2, 0.0f, 0 );
+    camera_lookat = aabb.center(); 
+    camera_up     = make_float3( 0.0f, 1.0f, 0.0f );
+
+    camera_rotate  = Matrix4x4::identity();
+}
+
+
+void OptixSampler::setupLights(Aabb aabb)
+{
+    const float max_dim = fmaxf(aabb.extent(0), aabb.extent(1)); // max of x, y components
+
+    BasicLight lights[] = {
+        //{ make_float3( -0.5f,  0.25f, -1.0f ), make_float3( 0.2f, 0.2f, 0.25f ), 0, 0 },
+        //{ make_float3( -0.5f,  0.0f ,  1.0f ), make_float3( 0.1f, 0.1f, 0.10f ), 0, 0 },
+        //{ make_float3(  0.5f,  0.5f ,  0.5f ), make_float3( 0.7f, 0.7f, 0.65f ), 1, 0 },
+		{ aabb.center() + make_float3(0,25,0), make_float3(1.f, 1.f, 0.9f),		 1, 0 }
+    };
+    //lights[0].pos *= max_dim * 10.0f; 
+    //lights[1].pos *= max_dim * 10.0f; 
+    //lights[2].pos *= max_dim * 10.0f; 
+
+    Buffer light_buffer = context->createBuffer( RT_BUFFER_INPUT );
+    light_buffer->setFormat( RT_FORMAT_USER );
+    light_buffer->setElementSize( sizeof( BasicLight ) );
+    light_buffer->setSize( sizeof(lights)/sizeof(lights[0]) );
+    memcpy(light_buffer->map(), lights, sizeof(lights));
+    light_buffer->unmap();
+
+    context[ "lights" ]->set( light_buffer );
+}
+
+
+void OptixSampler::updateCamera()
+{    
+	const float aspect_ratio = static_cast<float>(width) /
+		static_cast<float>(height);
+    float3 camera_u, camera_v, camera_w;
+    sutil::calculateCameraVariables(
+            camera_eye, camera_lookat, camera_up, vfov, aspect_ratio,
+            camera_u, camera_v, camera_w, true );
+
+    const Matrix4x4 frame = Matrix4x4::fromBasis( 
+            normalize( camera_u ),
+            normalize( camera_v ),
+            normalize( -camera_w ),
+            camera_lookat);
+    const Matrix4x4 frame_inv = frame.inverse();
+    // Apply camera rotation twice to match old SDK behavior
+    const Matrix4x4 trans     = frame*camera_rotate*camera_rotate*frame_inv; 
+
+    camera_eye    = make_float3( trans*make_float4( camera_eye,    1.0f ) );
+    camera_lookat = make_float3( trans*make_float4( camera_lookat, 1.0f ) );
+    camera_up     = make_float3( trans*make_float4( camera_up,     0.0f ) );
+
+    sutil::calculateCameraVariables(
+            camera_eye, camera_lookat, camera_up, vfov, aspect_ratio,
+            camera_u, camera_v, camera_w, true );
+
+    camera_rotate = Matrix4x4::identity();
+
+    context["eye"]->setFloat( camera_eye );
+    context["U"  ]->setFloat( camera_u );
+    context["V"  ]->setFloat( camera_v );
+    context["W"  ]->setFloat( camera_w );
+}
+
+
+// event handler
+#pragma region EVENT_HANDLER
+
+void OptixSampler::glutDisplay()
+{
+	static unsigned frame_count = 0;
+	context["frame_number"]->setUint(frame_count);
+
+	layout->updateGeometry();
+	updateCamera();
+	sampleIdx = 0;
+
+	setupCamSampleContext();
+	context->validate();
+	context->launch(0, samplenum);
+	getBufferContent(NULL, true);
+
+	setuplightSampleContext();
+	context->validate();
+	context->launch(0, samplenum);
+	getBufferContent(NULL, true);
+
+	setupDirlightSampleContext();
+	context->validate();
+	context->launch(0, samplenum);
+	getBufferContent(NULL, true);
+	
+	setupNormalContext();
+	context->validate();
+	context->launch(0, width, height);
+	getBufferContent(getOutputBuffer(), false);
+
+	sutil::displayFps(frame_count++);
+}
+
+
+void OptixSampler::glInitialize( int* argc, char** argv )
+{
+	if (!glfwInit())
+	{
+		std::cout << "faile to init glfw" << std::endl;
+		return;
+	}
+	window = glfwCreateWindow(width, height, "FovWin", NULL, NULL);
+	if (window == NULL)
+	{
+		glfwTerminate();
+		std::cout << "faile to create window" << std::endl;
+		return;
+	}
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+
+	/*glfwSetKeyCallback(window, WindowCallBack::key_callback);
+	glfwSetMouseButtonCallback(window, WindowCallBack::mouse_button_callback);
+	glfwSetCursorPosCallback(window, WindowCallBack::cursor_position_callback);
+	glfwSetScrollCallback(window, WindowCallBack::scroll_callback);*/
+	glfwMakeContextCurrent(window);
+	glewExperimental = true;
+}
+
+
+void OptixSampler::Run()
+{
+	while (!glfwWindowShouldClose(window))
+	{
+
+		glutDisplay();
+
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
+	glfwTerminate();
+}
+
+
+//------------------------------------------------------------------------------
+//
+//  GLUT callbacks
+//
+//------------------------------------------------------------------------------
+
+
+void OptixSampler::glutKeyboardPress( unsigned char k, int x, int y )
+{
+
+    switch( k )
+    {
+        case( 'q' ):
+        case( 27 ): // ESC
+        {
+            destroyContext();
+            exit(0);
+        }
+        case( 's' ):
+        {
+            const std::string outputImage = std::string(SAMPLE_NAME) + ".ppm";
+            std::cerr << "Saving current frame to '" << outputImage << "'\n";
+            sutil::displayBufferPPM( outputImage.c_str(), getOutputBuffer() );
+            break;
+        }
+		case('d'):
+		{
+			camera_eye -= make_float3(0.0f, 0.0f, 3);
+			updateCamera();
+			break;
+		}
+		case('e'):
+		{
+			camera_eye += make_float3(0.0f, 0.0f, 3);
+			updateCamera();
+			break;
+		}
+		case('r'):
+		{
+			layout->resetGeometry();
+			break;
+		}
+		case(' '):
+		{
+			layout->triggerGeometryMove();
+			break;
+		}
+    }
+}
+
+
+void OptixSampler::glutMousePress( int button, int state, int x, int y )
+{
+    if( state == GLFW_PRESS )
+    {
+        mouse_button = button;
+        mouse_prev_pos = make_int2( x, y );
+    }
+    else
+    {
+        // nothing
+    }
+}
+
+
+void OptixSampler::glutMouseMotion( int x, int y)
+{
+    if( mouse_button == GLFW_PRESS )
+    {
+        const float dx = static_cast<float>( x - mouse_prev_pos.x ) /
+                         static_cast<float>( width );
+        const float dy = static_cast<float>( y - mouse_prev_pos.y ) /
+                         static_cast<float>( height );
+        const float dmax = fabsf( dx ) > fabs( dy ) ? dx : dy;
+        const float scale = fminf( dmax, 0.9f );
+        camera_eye = camera_eye + (camera_lookat - camera_eye)*scale;
+    }
+    else if( mouse_button == GLFW_PRESS)
+    {
+        const float2 from = { static_cast<float>(mouse_prev_pos.x),
+                              static_cast<float>(mouse_prev_pos.y) };
+        const float2 to   = { static_cast<float>(x),
+                              static_cast<float>(y) };
+
+        const float2 a = { from.x / width, from.y / height };
+        const float2 b = { to.x   / width, to.y   / height };
+
+        camera_rotate = arcball.rotate( b, a );
+    }
+	else if (mouse_button == GLFW_PRESS)
+	{
+		const float2 from = { static_cast<float>(mouse_prev_pos.x),
+			static_cast<float>(mouse_prev_pos.y) };
+		const float2 to = { static_cast<float>(x),
+			static_cast<float>(y) };
+	}
+
+    mouse_prev_pos = make_int2( x, y );
+}
+
+
+void OptixSampler::glutResize( int w, int h )
+{
+    if ( w == (int)width && h == (int)height ) return;
+
+    width  = w;
+    height = h;
+    sutil::ensureMinimumSize(width, height);
+
+    sutil::resizeBuffer( getOutputBuffer(), width, height );
+    
+    glViewport(0, 0, width, height);                                               
+
+}
+
+#pragma endregion
+
+// Converts the buffer format to gl format
+GLenum OptixSampler::glFormatFromBufferFormat(bufferPixelFormat pixel_format, RTformat buffer_format)
+{
+	if (buffer_format == RT_FORMAT_UNSIGNED_BYTE4)
+	{
+		switch (pixel_format)
+		{
+		case BUFFER_PIXEL_FORMAT_DEFAULT:
+			return GL_BGRA;
+		case BUFFER_PIXEL_FORMAT_RGB:
+			return GL_RGBA;
+		case BUFFER_PIXEL_FORMAT_BGR:
+			return GL_BGRA;
+		default:
+			throw Exception("Unknown buffer pixel format");
+		}
+	}
+	else if (buffer_format == RT_FORMAT_FLOAT4)
+	{
+		switch (pixel_format)
+		{
+		case BUFFER_PIXEL_FORMAT_DEFAULT:
+			return GL_RGBA;
+		case BUFFER_PIXEL_FORMAT_RGB:
+			return GL_RGBA;
+		case BUFFER_PIXEL_FORMAT_BGR:
+			return GL_BGRA;
+		default:
+			throw Exception("Unknown buffer pixel format");
+		}
+	}
+	else if (buffer_format == RT_FORMAT_FLOAT3)
+		switch (pixel_format)
+		{
+		case BUFFER_PIXEL_FORMAT_DEFAULT:
+			return GL_RGB;
+		case BUFFER_PIXEL_FORMAT_RGB:
+			return GL_RGB;
+		case BUFFER_PIXEL_FORMAT_BGR:
+			return GL_BGR;
+		default:
+			throw Exception("Unknown buffer pixel format");
+		}
+	else if (buffer_format == RT_FORMAT_FLOAT)
+		return GL_LUMINANCE;
+	else
+		throw Exception("Unknown buffer format");
+}
+
+
+
+//------------------------------------------------------------------------------
+//
+// Main
+//
+//------------------------------------------------------------------------------
+
+void OptixSampler::printUsageAndExit( const std::string& argv0 )
+{
+    std::cerr << "\nUsage: " << argv0 << " [options]\n";
+    std::cerr <<
+        "App Options:\n"
+        "  -h | --help               Print this usage message and exit.\n"
+        "  -f | --file               Save single frame to file and exit.\n"
+        "  -n | --nopbo              Disable GL interop for display buffer.\n"
+        "  -m | --mesh <mesh_file>   Specify path to mesh to be loaded.\n"
+        "  -r | --report <LEVEL>     Enable usage reporting and report level [1-3].\n"
+        "App Keystrokes:\n"
+        "  q  Quit\n" 
+        "  s  Save image to '" << SAMPLE_NAME << ".ppm'\n"
+        << std::endl;
+
+    exit(1);
+}
+
+void OptixSampler::Initialize(int argc, char** argv)
+ {
+    int usage_report_level = 0;
+
+    try
+    {
+        glInitialize(&argc, argv);
+		// Initialize GLEW to setup the OpenGL Function pointers
+		GLenum err = glewInit();
+		if (err != GLEW_OK) {
+			fprintf(stderr, "%s\n", glewGetErrorString(err));
+			return;
+		}
+
+        UsageReportLogger logger;
+        createContext( usage_report_level, &logger );
+		layout = new SeparateAccelsLayout("Trbvh", true);
+		createScene(context, layout);
+		const optix::Aabb aabb = layout->getSceneBBox();
+        setupCamera(aabb);
+        setupLights(aabb);
+
+		//context->validate();
+//         updateCamera();
+//         context->launch( 0, width, height );
+//         sutil::displayBufferPPM( out_file.c_str(), getOutputBuffer() );
+//         destroyContext();
+    }
+    SUTIL_CATCH( context->get() )
+}
+
